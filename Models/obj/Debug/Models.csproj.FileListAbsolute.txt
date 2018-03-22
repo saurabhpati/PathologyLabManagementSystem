@@ -2,3 +2,4 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin\Debug\Models.pdb
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.pdb
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
