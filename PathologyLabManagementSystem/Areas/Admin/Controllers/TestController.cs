@@ -81,8 +81,10 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             {
                 new TestAttribute(){ TestId=1}
             };
-            TestAttributeViewModel obj = new TestAttributeViewModel();
-            obj.LstAttr = lst;
+            TestAttributeViewModel obj = new TestAttributeViewModel
+            {
+                LstAttr = lst
+            };
 
             return View(obj);
 
@@ -91,7 +93,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
 
 
         public ActionResult BlankEditorRow()
-        {
+         {
             return PartialView("AddTestAttributePartial", new TestAttribute());
         }
 
@@ -99,9 +101,9 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         public ActionResult AddTestAttribute(IEnumerable<TestAttribute> testAttributes)
         {
             var lstAttr = testAttributes;
+            int count = 0;
             foreach (var lst in testAttributes)
-            {
-                int count = 0;
+            {                
                 count++;
             }
             return View();

@@ -6,3 +6,12 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositori
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.pdb
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositories\bin\Debug\BeginCollectionItem.dll
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\bin\Debug\Repositories.dll
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\bin\Debug\Repositories.pdb
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\bin\Debug\BeginCollectionItem.dll
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\bin\Debug\Models.dll
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\bin\Debug\Models.pdb
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.csproj.CoreCompileInputs.cache
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.dll
+C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.pdb
