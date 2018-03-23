@@ -1,0 +1,13 @@
+﻿@model PathologyLabManagementSystem.Controllers.Gift
+@using (Html.BeginCollectionItem("gifts"))
+{
+    @Html.ValidationSummary(true)
+    <div class="editorRow" id="testClass">
+        @Html.TextBoxFor(m => m.AccountSelectedId,new {@class = "testtwo"})
+        @Html.ValidationMessageFor(m => m.Name)
+        Name: @Html.EditorFor(m => m.Name)
+        Price: @Html.EditorFor(m=>m.Price)
+        Brands: @Html.DropDownListFor(n => n.Brand, new SelectList(Model.lstBrands), "Brand")
+        <a class="info-modal-link">clickhere</a>
+    </div>
+}

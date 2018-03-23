@@ -1,0 +1,62 @@
+﻿@model PathologyLabManagementSystem.Areas.Admin.ViewModels.TestAttributeViewModel
+<h2>Add Test Attribute</h2>
+@using (Html.BeginForm())
+{
+    <div>
+
+    </div>
+    <fieldset>
+        <legend>Attribute</legend>
+        <div id="NewAttribute">
+            @foreach (var tstAttr in Model.LstAttr)
+            {
+                <div id="divInt">
+                    @Html.Partial("AddTestAttributePartial", tstAttr)
+                </div>
+
+            }
+        </div>
+        <div>
+            <input type="button" id="addTestAttribute" name="AddNewAttribute" value="Add New" />
+            <br />
+        </div>
+        <br />
+    </fieldset>
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+}
+@section Scripts
+
+    {
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+            //$("#btnSaveAll").hide();
+        });
+        $("#addTestAttribute").on('click', function () {
+            var $item = $('#divInt').clone();
+            $("#btnSave").val("Save All");
+            //$("#btnSaveAll").show();
+            $item.find("input:text").val("").end();
+            $('#NewAttribute').append($item);
+
+        });
+
+
+    </script>*@
+    <script type="text/javascript">
+        $('#addTestAttribute').on('click', function () {
+            $.ajax({
+                async: false,
+                url: '/Test/AddTestAttributePartial'
+            }).success(function (partialView) {
+                $('#NewAttribute').append(partialView);
+            });
+        });
+
+        $("#deleteRow").on("click", function () {
+            $(this).parents("#employeeRow:first").remove();
+            return false;
+        });
+    </script>
+}

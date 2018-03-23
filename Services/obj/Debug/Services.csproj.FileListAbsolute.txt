@@ -7,3 +7,4 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Services\b
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Services\obj\Debug\Services.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Services\obj\Debug\Services.pdb
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Services\bin\Debug\BeginCollectionItem.dll

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Services;
 using Models;
+using PathologyLabManagementSystem.Areas.Admin.ViewModels;
 
 namespace PathologyLabManagementSystem.Areas.Admin.Controllers
 {
@@ -36,20 +37,79 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         /// Loads the view page to add new test!
         /// </summary>
         /// <returns>A view</returns>
-        public ActionResult AddTest([Bind(Include = "Name")]Test tstObj)
+        public ActionResult AddTest()
         {
-            ServiceResponse<int> response = new ServiceResponse<int>()
-            {
-                Status = StatusType.Failure
-            };
-
-            if(TestService.)
             return View();
         }
 
+        [HttpPost]
+        public ActionResult AddTest([Bind(Include = "Name,Type")]Test tstObj)
+        {
+            var testServiceResponse = TestService.AddTest(tstObj);
+
+            if (testServiceResponse.Status == StatusType.Success)
+            {
+                tstObj.Id = testServiceResponse.Data;
+                 Session["tstId"] = tstObj.Id;
+                return RedirectToAction("AddTestAttribute");
+            }
+            return View();
+        }
         public ActionResult ViewTests()
         {
             return View();
         }
+
+        public ActionResult AddTestAttributeEditor()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddTestAttributeEditor(List<TestAttribute> lstAttributes)
+        {
+            var lst = lstAttributes;
+            //int tstId = tstAtribtObj.TestId;
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult AddTestAttribute()
+        {
+            List<TestAttribute> moreTest = new List<TestAttribute>
+            {
+                new TestAttribute(){ TestId=(int)Session["tstId"] },
+                new TestAttribute(){ TestId=(int)Session["tstId"] },
+                null
+            };
+
+            TestAttributeViewModel obj = new TestAttributeViewModel()
+            {
+                LstAttr = moreTest
+            };
+            obj.LstAttr.RemoveAll(item => item == null);
+            return View(obj);
+        }
+
+        
+
+        public ActionResult AddTestAttributePartial()
+        {
+            return PartialView(new TestAttribute());
+        }
+
+        [HttpPost]
+        public ActionResult AddTestAttribute(List<TestAttribute> lstAttributes)
+        {
+            var lstAttr = lstAttributes;
+            foreach (var lst in lstAttributes)
+            {
+                int count = 0;
+                count++;
+            }
+            return View();
+        }
+
+
     }
 }

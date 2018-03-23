@@ -1,0 +1,31 @@
+﻿@model Models.TestAttribute
+@using HtmlHelpers.BeginCollectionItem
+@using (Html.BeginCollectionItem("TestAttributes"))
+{
+    <div id="employeeRow" class="employeeRow">
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+
+        @Html.LabelFor(m => m.Unit)
+        @Html.EditorFor(m => m.Unit)
+
+        @Html.LabelFor(m => m.ReferenceValue)
+        @Html.EditorFor(m => m.ReferenceValue)
+
+        <a href="#" id="deleteRow" class="deleteRow" onclick="deleteFunction()">Delete</a>
+    </div>
+}
+
+
+@*@using (Html.BeginCollectionItem("attributes"))
+{
+    @Html.ValidationSummary(true)
+    <div class="editorRow" id="testClass">
+        @Html.TextBoxFor(m => m.Name, new { @class = "name" })
+        @Html.ValidationMessageFor(m => m.Name)
+        Name: @Html.EditorFor(m => m.Unit)
+        Price: @Html.EditorFor(m => m.ReferenceValue)
+        TestId: @Html.DisplayFor(m=>m.TestId)
+        <a class="info-modal-link">clickhere</a>
+    </div>
+}*@

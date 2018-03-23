@@ -1,0 +1,189 @@
+﻿@model PathologyLabManagementSystem.Controllers.GiftViewModel
+<h2>Gift List</h2>
+What do you want for your birthday?
+@Scripts.Render("~/bundles/jquery")
+<style>
+    .modal-overlay {
+        background: rgba(0,0,0,0.5);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display:none;
+    }
+    .modal-box {
+        margin-top: -10px;
+        background: #fff;
+        width: 500px;
+        margin: 20% auto;
+        padding: 15px 20px;
+    }
+</style>
+
+@using(Html.BeginForm()) {
+<a class="negative item red DeleteAudienceButton">
+    Delete Audience
+    <i class="trash icon" style="float: right;"></i>
+</a>
+    <button id="abc"></button>
+ <div class="ui small basic test modal">
+   <div class="ui icon header">
+        <i class="archive icon"></i>
+        Archive Old Messages
+    </div>
+    <div class="content">
+        <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+    </div>
+    <div class="actions">
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            No
+        </div>
+        <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Yes
+        </div>
+    </div>
+ </div>
+
+
+        <div id="editorRows">
+            @foreach (var item in Model.lst)
+            {
+                { Html.RenderPartial("GiftEditorRow", item); }
+            }
+
+        </div>
+        @Html.ActionLink("Add another...", "BlankEditorRow", null, new { id = "addItem" })
+        <input type="submit" value="Finished" />
+}
+
+
+<script type="text/javascript">
+    $("#addItem").on('click', function () {
+        var form = $('form');
+        $.ajax({
+            url: this.href,
+            cache: false,
+            success: function (html) {
+                $("#editorRows").append(html);
+                form.data('validator', null);
+                $.validator.unobtrusive.parse(form);
+            }
+
+        });
+        return false;
+    });
+
+</script>
+
+<script>
+    ConfigureAction({
+        selector: '#abc',
+        url: '@Url.Content("~/order/DeleteOrder/")"100"',
+        method: "DELETE",
+        message: "You are about to delete this audience, are you sure you would like to do this?",
+        onSuccess: function (response) {
+            alert('testpassed');
+        }
+    });
+    $(function () {
+        $('body').on('click', '.info-modal-link', function (e) {
+            $('#hidInp').val($(this).parents("div.editorRow").find('input:first-child').attr('id'))
+            e.preventDefault();
+            $(this).parents("div.employeeRow:first")
+            alert(JSON.stringify($(this)))
+            var url = 'Gift/OpenModelDialog';//$(this).attr('href');
+            $.get(url, function (data) {
+                $(".modal-overlay").show();
+                $('.modal-box').html(data);
+
+                //$(".modal-overlay").modal({ closable: true, observeChanges: true }).modal('show');
+            });
+        });
+
+        $("#closeModal").on('click', function () {
+            $(".modal-overlay").hide();
+        });
+    });
+
+    $('.DeleteAudienceButton').on('click', function () {
+        alert('sdafsdsfdsf');
+        $('.ui.small.basic.test.modal').modal(
+        {
+            closable: false,
+            onDeny: function () {
+                window.alert('Wait not yet!');
+                return false;
+            },
+            onApprove: function () {
+                window.alert('Approved!');
+                $('#abc').click();
+            }
+        }).modal('show');
+    })
+
+
+
+
+
+
+    function ConfigureAction(settings) {
+        var config = {
+            selector: "",
+            url: "",
+            method: "POST",
+            onSuccess: function (response) { }
+        };
+
+        $.extend(config, settings);
+
+        $(config.selector).api({
+            url: config.url,
+            method: config.method,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            serializeForm: true,
+            beforeSend: function (settings) {
+                // open console to inspect object
+
+
+                $(config.selector + " .icon").attr("oldClass", $(config.selector + " .icon").attr("class"));
+                $(config.selector + " .icon").attr("class", "ui active inline tiny text loader");
+
+                settings.data = JSON.stringify([]);
+
+                console.log(settings);
+                return settings;
+            },
+            onComplete: function (response) {
+                $(config.selector + " .loader").attr("class", $(config.selector + " .loader").attr("oldClass"));
+            },
+            onSuccess: function (response) {
+                console.log(response);
+                config.onSuccess(response);
+            },
+            onFailure: function (response) {
+                SetErrorMessage(response.Message);
+                $('.ui.small.modal.error').modal({
+                    closable: false,
+                    allowMultiple: false,
+                    onApprove: function () {
+                    }
+                }).modal('show');
+            }
+        });
+    };
+</script>
+
+
+<div class="modal-overlay">
+    <input id="hidInp" type="text" name="hidInp" />
+    <div class="modal-box">
+
+    </div>
+</div>
+

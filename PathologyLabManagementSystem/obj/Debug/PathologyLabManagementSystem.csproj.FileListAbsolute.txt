@@ -1,4 +1,3 @@
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\ApplicationInsights.config
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\roslyn\csc.exe
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\roslyn\csc.exe.config
@@ -30,6 +29,7 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyL
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\PathologyLabManagementSystem.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\PathologyLabManagementSystem.pdb
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Antlr3.Runtime.dll
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\BeginCollectionItem.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\EntityFramework.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\EntityFramework.SqlServer.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.AI.Agent.Intercept.dll
@@ -101,5 +101,6 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyL
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.AI.Web.xml
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.pdb

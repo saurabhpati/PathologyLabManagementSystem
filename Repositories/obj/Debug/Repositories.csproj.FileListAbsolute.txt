@@ -5,3 +5,4 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositori
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositories\obj\Debug\Repositories.pdb
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Repositories\bin\Debug\BeginCollectionItem.dll

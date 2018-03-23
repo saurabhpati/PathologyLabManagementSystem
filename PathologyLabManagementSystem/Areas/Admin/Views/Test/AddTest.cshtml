@@ -1,11 +1,10 @@
-﻿@model KL.Models.Test
+﻿@model Models.Test
 
 @{
     ViewBag.Title = "AddTest";
 }
 
 <h2>AddTest</h2>
-
 
 @using (Html.BeginForm()) 
 {
@@ -22,17 +21,23 @@
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
-                @Html.ActionLink("Cancel", "Panel", "Admin")
             </div>
-            
         </div>
     </div>
 }
 
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
