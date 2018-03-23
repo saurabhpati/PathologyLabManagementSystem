@@ -50,7 +50,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             if (testServiceResponse.Status == StatusType.Success)
             {
                 tstObj.Id = testServiceResponse.Data;
-                 Session["tstId"] = tstObj.Id;
+                Session["tstId"] = tstObj.Id;
                 return RedirectToAction("AddTestAttribute");
             }
             return View();
@@ -74,35 +74,32 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         }
 
         [HttpGet]
+
         public ActionResult AddTestAttribute()
         {
-            List<TestAttribute> moreTest = new List<TestAttribute>
+            List<TestAttribute> lst = new List<TestAttribute>
             {
-                new TestAttribute(){ TestId=(int)Session["tstId"] },
-                new TestAttribute(){ TestId=(int)Session["tstId"] },
-                null
+                new TestAttribute(){ TestId=1}
             };
+            TestAttributeViewModel obj = new TestAttributeViewModel();
+            obj.LstAttr = lst;
 
-            TestAttributeViewModel obj = new TestAttributeViewModel()
-            {
-                LstAttr = moreTest
-            };
-            obj.LstAttr.RemoveAll(item => item == null);
             return View(obj);
+
         }
 
-        
 
-        public ActionResult AddTestAttributePartial()
+
+        public ActionResult BlankEditorRow()
         {
-            return PartialView(new TestAttribute());
+            return PartialView("AddTestAttributePartial", new TestAttribute());
         }
 
         [HttpPost]
-        public ActionResult AddTestAttribute(List<TestAttribute> lstAttributes)
+        public ActionResult AddTestAttribute(IEnumerable<TestAttribute> testAttributes)
         {
-            var lstAttr = lstAttributes;
-            foreach (var lst in lstAttributes)
+            var lstAttr = testAttributes;
+            foreach (var lst in testAttributes)
             {
                 int count = 0;
                 count++;
