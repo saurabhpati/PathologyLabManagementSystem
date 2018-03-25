@@ -74,12 +74,11 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         }
 
         [HttpGet]
-
         public ActionResult AddTestAttribute()
         {
             List<TestAttribute> lst = new List<TestAttribute>
             {
-                new TestAttribute(){ TestId=1}
+                new TestAttribute(){ TestId=(int)Session["tstId"]}
             };
             TestAttributeViewModel obj = new TestAttributeViewModel
             {
