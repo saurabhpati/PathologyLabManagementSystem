@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<h2>Index</h2>
+<div id="divMain" style="align-content:center" class="divider"  >
+    <center>
+        <div style="align-content:center">
+            <input type="button" value="Test" id="btnTst" style="width:100px; height:100px" />
+            <input type="button" value="Patient" id="btnPatient" style="width:100px; height:100px" />
+        </div>
+    </center>
+</div>
+
+<div id="divTest" style="color:darkgray">
+    <center>
+        <div>
+            <input type="button" value="Add New Test" id="btnAddNewTest" style="width:100px; height:100px" />
+            <input type="button" value="View All Tests" id="btnViewAllTests" style="width:100px; height:100px" />
+        </div>
+    </center>
+</div>
+
+<div id="divPat" style="color:darkgray">
+    <center>
+    <div>
+        <input type="button" value="View Patient list" id="btnPatientList" style="width:100px; height:100px" />
+    </div>
+    </center>
+</div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <script type="text/javascript">
+        alert("@ViewBag.Message");
+        </script>
+    }
+    <script>
+        $(document).ready(function e() {
+            $("#divTest").hide();
+            $("#divPat").hide();
+        });
+        $("#btnTst").click(function OpenDivTest() {
+            $("#btnTst").animate({
+                backgroundColor: "#aa00ee",
+                color: "#ffffff"
+            });
+            $("#divTest").show("slow");            
+            $("#divPat").hide();
+            
+        });
+        $("#btnPatient").click(function OpenDivTest() {
+            $("#divPat").show("slow");
+            $("#divTest").hide();
+        });
+    </script>
+
+

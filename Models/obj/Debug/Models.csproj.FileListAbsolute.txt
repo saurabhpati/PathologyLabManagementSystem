@@ -1,9 +1,3 @@
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin\Debug\Models.dll
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin\Debug\Models.pdb
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.dll
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.pdb
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin\Debug\BeginCollectionItem.dll
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Models\bin\Debug\Models.dll
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Models\bin\Debug\Models.pdb
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Models\bin\Debug\BeginCollectionItem.dll
@@ -11,3 +5,8 @@ C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Models\obj\Debug\M
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Models\obj\Debug\Models.dll
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\Models\obj\Debug\Models.pdb
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin\Debug\Models.dll
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin\Debug\Models.pdb
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\bin\Debug\BeginCollectionItem.dll
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.dll
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\Models\obj\Debug\Models.pdb

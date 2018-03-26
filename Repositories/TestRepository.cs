@@ -25,9 +25,7 @@ namespace Repositories
 
             using (dbConnect.con)
             {
-                dbConnect.con.Open();
-                //var returnParameter = cmd.Parameters.Add("@TestId", SqlDbType.Int);
-                //returnParameter.Direction = ParameterDirection.ReturnValue;
+                dbConnect.con.Open();                
                 cmd.ExecuteNonQuery();
                 testIdRecent = (int)cmd.Parameters["@TestId"].Value;
             }

@@ -32,17 +32,23 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpGet]
+
         /// <summary>
         /// Loads the view page to add new test!
         /// </summary>
         /// <returns>A view</returns>
+        /// [HttpGet]
         public ActionResult AddTest()
         {
             return View();
         }
 
-        [HttpPost]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tstObj"></param>
+        /// <returns></returns>
+        [HttpPost]        
         public ActionResult AddTest([Bind(Include = "Name,Type")]Test tstObj)
         {
             var testServiceResponse = TestService.AddTest(tstObj);
@@ -55,16 +61,24 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             }
             return View();
         }
+
+
         public ActionResult ViewTests()
         {
             return View();
         }
+
 
         public ActionResult AddTestAttributeEditor()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lstAttributes"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AddTestAttributeEditor(List<TestAttribute> lstAttributes)
         {
@@ -73,6 +87,10 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult AddTestAttribute()
         {
@@ -84,28 +102,34 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             {
                 LstAttr = lst
             };
-
             return View(obj);
-
         }
 
 
-
+        /// <summary>
+        /// For Loading new addTestAttribute Partial view
+        /// </summary>
+        /// <returns></returns>
         public ActionResult BlankEditorRow()
-         {
+        {
             return PartialView("AddTestAttributePartial", new TestAttribute());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="testAttributes"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AddTestAttribute(IEnumerable<TestAttribute> testAttributes)
         {
-            var lstAttr = testAttributes;
-            int count = 0;
-            foreach (var lst in testAttributes)
-            {                
-                count++;
+            foreach(var list in testAttributes)
+            {
+                list.TestId = (int)Session["tstId"];
             }
-            return View();
+            var testAttributeServiceResponse = TestAttributeService.AddAttributes(testAttributes);
+            ViewBag.Message = "Test was created successfully";
+            return RedirectToAction("AddTest","Test");
         }
 
 
