@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Models.Test>
+
+@{
+    ViewBag.Title = "ViewTests";
+}
+@section scripts
+{
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <script type="text/javascript">
+        alert("@ViewBag.Message");
+        </script>
+    }
+}
+<h2>ViewTests</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditTest", new { id=item.Id }) |
+            @Html.ActionLink("Details", "TestDetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteTest", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

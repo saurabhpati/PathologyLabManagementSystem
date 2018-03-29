@@ -5,56 +5,103 @@
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 
 <h2>Index</h2>
-<div id="divMain" style="align-content:center" class="divider"  >
+<div id="divMain" style="align-content:center" class="divider">
     <center>
         <div style="align-content:center">
-            <input type="button" value="Test" id="btnTst" style="width:100px; height:100px" />
-            <input type="button" value="Patient" id="btnPatient" style="width:100px; height:100px" />
+            <input type="button" value="Test" id="btnTst" style="width:100px; height:50px; color:cadetblue" class="btn btn-default"/>
+            <input type="button" value="Patient" id="btnPatient" style="width:100px; height:50px; color:cadetblue" class="btn btn-default"/>
         </div>
     </center>
 </div>
 
-<div id="divTest" style="color:darkgray">
+<div id="divTest" style="color:darkgray; padding:50px">
+    <center>
+        <div >
+            <input type="button" value="Add New Test" id="btnAddNewTest" style="width:200px; height:100px; color:cadetblue" class="btn btn-default" onclick="location.href='@Url.Action("AddTest", "Test")'" />
+            <input type="button" value="View All Tests" id="btnViewAllTests" style="width:200px; height:100px; color:cadetblue" class="btn btn-default" onclick="location.href='@Url.Action("ViewTests","Test")'" />
+        </div>
+    </center>
+</div>
+
+<div id="divPat" style="color:darkgray; padding:50px" >
     <center>
         <div>
-            <input type="button" value="Add New Test" id="btnAddNewTest" style="width:100px; height:100px" />
-            <input type="button" value="View All Tests" id="btnViewAllTests" style="width:100px; height:100px" />
+            <input type="button" value="View Patient list" id="btnPatientList" style="width:200px; height:100px; color:cadetblue" class="btn btn-default"/>
         </div>
     </center>
 </div>
 
-<div id="divPat" style="color:darkgray">
-    <center>
-    <div>
-        <input type="button" value="View Patient list" id="btnPatientList" style="width:100px; height:100px" />
-    </div>
-    </center>
-</div>
-
-    @if (!string.IsNullOrEmpty(ViewBag.Message))
+@section Scripts
     {
-        <script type="text/javascript">
-        alert("@ViewBag.Message");
-        </script>
-    }
     <script>
+        var a = 1;
+        var b = 1;
         $(document).ready(function e() {
             $("#divTest").hide();
             $("#divPat").hide();
         });
-        $("#btnTst").click(function OpenDivTest() {
+        $("#btnTst").click(function fun2() {
+            if (a % 2 != 0)
+                {
             $("#btnTst").animate({
-                backgroundColor: "#aa00ee",
+                backgroundColor: "#049ba3",
                 color: "#ffffff"
-            });
-            $("#divTest").show("slow");            
-            $("#divPat").hide();
-            
+                });
+            if (b % 2 == 0)
+            {
+                $("#btnPatient").animate({
+                    backgroundColor: "#ffffff",
+                    color: "#000000"
+                });
+                $("#divPat").hide("slow");
+                b++;
+            }
+
+            $("#divPat").hide("slow");
+            $("#divTest").show("slow");
+            a++;
+            }
+            else
+            {
+                $("#divTest").hide("slow");
+                $("#btnTst").animate({
+                    backgroundColor: "#ffffff",
+                    color: "#000000"
+                });
+                a++;
+            }
+
         });
-        $("#btnPatient").click(function OpenDivTest() {
-            $("#divPat").show("slow");
-            $("#divTest").hide();
+        $("#btnPatient").click(function fun1() {
+            if (b % 2 != 0) {
+                $("#btnPatient").animate({
+                    backgroundColor: "#049ba3",
+                    color: "#ffffff"                    
+                });
+                if (a % 2 == 0) {
+                    $("#btnTst").animate({
+                        backgroundColor: "#ffffff",
+                        color: "#000000"
+                    });
+                    a++;
+                    $("#divTest").hide("slow");
+                }
+                $("#divTest").hide("slow");
+                $("#divPat").show("slow");
+                b++;
+            }
+            else
+            {
+                $("#btnPatient").animate({
+                    backgroundColor: "#ffffff",
+                    color: "#000000"
+                });
+                $("#divPat").hide("slow");
+                b++;
+            }
+
         });
     </script>
+}
 
 

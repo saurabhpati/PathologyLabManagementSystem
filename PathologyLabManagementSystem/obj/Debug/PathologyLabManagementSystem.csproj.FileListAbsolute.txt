@@ -105,6 +105,7 @@ C:\Users\honey\Documents\Project\PathologyLabManagementSystem\PathologyLabManage
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.csproj.CoreCompileInputs.cache
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.dll
 C:\Users\honey\Documents\Project\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.pdb
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\ApplicationInsights.config
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\roslyn\csc.exe
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\roslyn\csc.exe.config
@@ -136,6 +137,7 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyL
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\PathologyLabManagementSystem.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\PathologyLabManagementSystem.pdb
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Antlr3.Runtime.dll
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\AutoMapper.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\BeginCollectionItem.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\EntityFramework.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\EntityFramework.SqlServer.dll
@@ -178,6 +180,7 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyL
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Models.pdb
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Repositories.pdb
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Services.pdb
+C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\AutoMapper.xml
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Ninject.xml
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\System.Web.Helpers.xml
@@ -208,6 +211,5 @@ C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyL
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\bin\Microsoft.AI.Web.xml
-C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.dll
 C:\Users\thinksysuser\Documents\Personal\PathologyLabManagementSystem\PathologyLabManagementSystem\obj\Debug\PathologyLabManagementSystem.pdb

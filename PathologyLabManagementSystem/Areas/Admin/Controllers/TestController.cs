@@ -9,6 +9,7 @@ using PathologyLabManagementSystem.Areas.Admin.ViewModels;
 
 namespace PathologyLabManagementSystem.Areas.Admin.Controllers
 {
+    //[Authorize]
     public class TestController : Controller
     {
         #region Constructor
@@ -40,6 +41,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         /// [HttpGet]
         public ActionResult AddTest()
         {
+            ViewBag.Message = TempData["Message"];
             return View();
         }
 
@@ -58,14 +60,27 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
                 tstObj.Id = testServiceResponse.Data;
                 Session["tstId"] = tstObj.Id;
                 return RedirectToAction("AddTestAttribute");
-            }
+            }            
             return View();
         }
 
 
         public ActionResult ViewTests()
         {
-            return View();
+            List<Test> lstTest = new List<Test>();
+            var serviceResponse = TestService.GetAllTest();
+            if (serviceResponse.Status == StatusType.Success)
+            {
+                lstTest = serviceResponse.Data;
+            }
+            else
+            {
+                lstTest.Add(
+                    new Test() { Name = serviceResponse.Error.Message }
+                );
+            }
+            ViewBag.Message = TempData["Message"];
+            return View(lstTest);
         }
 
 
@@ -105,17 +120,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             return View(obj);
         }
 
-
-        /// <summary>
-        /// For Loading new addTestAttribute Partial view
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult BlankEditorRow()
-        {
-            return PartialView("AddTestAttributePartial", new TestAttribute());
-        }
-
-        /// <summary>
+        // <summary>
         /// 
         /// </summary>
         /// <param name="testAttributes"></param>
@@ -123,14 +128,103 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult AddTestAttribute(IEnumerable<TestAttribute> testAttributes)
         {
-            foreach(var list in testAttributes)
+            foreach (var list in testAttributes)
             {
                 list.TestId = (int)Session["tstId"];
             }
             var testAttributeServiceResponse = TestAttributeService.AddAttributes(testAttributes);
-            ViewBag.Message = "Test was created successfully";
-            return RedirectToAction("AddTest","Test");
+            TempData["Message"] = "Test was created successfully";
+            return RedirectToAction("AddTest", "Test");
         }
+
+        [HttpGet]
+        public ActionResult EditTest(int id)
+        {
+            EditTestViewModel tst = new EditTestViewModel();
+            Session["tstId"] = id;
+            var serviceResponse = TestService.GetTest(id);
+            if(serviceResponse.Status==StatusType.Success)
+            {
+                tst.Id = serviceResponse.Data.Id;
+                tst.Name = serviceResponse.Data.Name;
+                tst.Type = serviceResponse.Data.Type;
+            }
+            return View(tst);
+        }
+
+        [HttpPost]
+        public ActionResult EditTest([Bind(Include = "Name,Type,Id")]Test tst)
+        {
+            var serviceResponse = TestService.EditTest(tst);
+
+            if (serviceResponse.Status == StatusType.Success)
+            {
+                TempData["Message"] = $"updated {tst.Name} successfully!";
+            }
+            return RedirectToAction("ViewTests", "Test");
+        }
+
+        [HttpGet]
+        public ActionResult EditAttributes(int id)
+        {
+            int testId = id;
+            var serviceResponse = TestService.GetTestAttributes(testId);
+            TestAttributeViewModel obj = new TestAttributeViewModel();
+            
+            if (serviceResponse.Status == StatusType.Success)
+            {
+                obj.LstAttr = serviceResponse.Data;
+            }
+            return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult EditAttributes(IEnumerable<TestAttribute> testAttributes)
+        {
+            List<TestAttribute> lstTstAttr = testAttributes.ToList();
+            foreach (var testAttr in lstTstAttr)
+            {
+                testAttr.TestId = (int)Session["tstId"];
+            }
+            var serviceResponse = TestAttributeService.EditTestAttribute(lstTstAttr);
+            if (serviceResponse.Status == StatusType.Success)
+            {
+                TempData["Message"] = "Attributes were successfully edited!";
+            }
+            return RedirectToAction("ViewTests","Test");
+        }
+
+        /// <summary>
+        /// To get the details of a selected test
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult TestDetails(int id)
+        {
+            var details = TestService.GetTestDetails(id);
+            if (details.Status == StatusType.Success)
+            {
+                return View(details.Data);
+            }
+            else
+            {
+                TempData["Message"] = "Failed to load Details!";
+                return RedirectToAction("ViewTests", "Test");
+            }
+        }
+
+        /// <summary>
+        /// For Loading new addTestAttribute Partial view
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult BlankEditorRow()
+        {
+            return PartialView("TestAttributePartial", new TestAttribute());
+        }
+
+
+        
 
 
     }

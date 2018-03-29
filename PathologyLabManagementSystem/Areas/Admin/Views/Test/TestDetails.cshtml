@@ -1,0 +1,92 @@
+﻿@model Models.TestDetailsViewModel
+<style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 12px;
+
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+@{
+    ViewBag.Title = "TestDetails";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div class="page-header">
+    <center>
+        <h2>TestDetails</h2>
+    </center>
+</div>
+<div>
+    <hr />
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TestId)</th>
+                <th>@Html.DisplayNameFor(model => model.TestName)</th>
+                <th>@Html.DisplayNameFor(model => model.TestType)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.TestId)</td>
+                <td>@Html.DisplayFor(model => model.TestName)</td>
+                <td>@Html.DisplayFor(model => model.TestType)</td>
+            </tr>
+        </tbody>
+        
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>*@
+
+    </table>
+</div>
+<div>
+    <br />    
+</div>
+<div>
+    <h4>Attributes</h4>
+    <hr />
+    <table class="testAttr">
+        <thead>
+            <tr>
+                <th><b>Name</b></th>
+                <th><b>Unit</b></th>
+                <th><b>Reference Value</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var attrs in Model.LstTestAttr)
+            {
+
+                <tr>
+                    <td>@Html.DisplayFor(item => attrs.Name)</td>
+
+                    <td>@Html.DisplayFor(item => attrs.Unit)</td>
+
+                    <td>@Html.DisplayFor(item => attrs.ReferenceValue)</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

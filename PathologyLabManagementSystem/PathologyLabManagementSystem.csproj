@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
     </Reference>
@@ -70,6 +73,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -213,6 +217,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\TestController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\EditTestViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\TestAttributeViewModel.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Connection.cs" />
@@ -298,8 +303,12 @@
     <Content Include="Areas\Admin\Views\Test\AddTest.cshtml" />
     <Content Include="Areas\Admin\Views\Test\AddTestAttribute.cshtml" />
     <Content Include="Areas\Admin\Views\Test\AddTestAttributeEditor.cshtml" />
-    <Content Include="Areas\Admin\Views\Test\AddTestAttributePartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Test\TestAttributePartial.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Test\ViewTests.cshtml" />
+    <Content Include="Areas\Admin\Views\Test\EditTest.cshtml" />
+    <Content Include="Areas\Admin\Views\Test\EditAttributes.cshtml" />
+    <Content Include="Areas\Admin\Views\Test\TestDetails.cshtml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />

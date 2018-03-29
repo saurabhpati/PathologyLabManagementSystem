@@ -51,6 +51,7 @@
     <Compile Include="Test.cs" />
     <Compile Include="TestAttribute.cs" />
     <Compile Include="TestComment.cs" />
+    <Compile Include="TestDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

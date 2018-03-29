@@ -1,0 +1,43 @@
+﻿@model PathologyLabManagementSystem.Areas.Admin.ViewModels.TestAttributeViewModel
+
+@{
+    ViewBag.Title = "EditAttributes";
+}
+
+<h2>Edit Test Attribute</h2>
+@using (Html.BeginForm())
+{
+
+    <div id="editorRows">
+        @foreach (var item in Model.LstAttr)
+        {
+            { Html.RenderPartial("TestAttributePartial", item); }
+        }
+
+    </div>
+    @Html.ActionLink("Add another...", "BlankEditorRow", null, new { id = "addItem" })
+    <input type="submit" value="Finished" />
+}
+
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $("#addItem").on('click', function () {
+            var form = $('form');
+            $.ajax({
+                url: this.href,
+                cache: false,
+                success: function (html) {
+                    $("#editorRows").append(html);
+                    form.data('validator', null);
+                    $.validator.unobtrusive.parse(form);
+                }
+
+            });
+            return false;
+        });
+
+    </script>
+}

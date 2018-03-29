@@ -3,13 +3,22 @@
 @{
     ViewBag.Title = "AddTest";
 }
+@section scripts
+{
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <script type="text/javascript">
+        alert("@ViewBag.Message");
+        </script>
+    }
+}
 
 <h2>AddTest</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Test</h4>
         <hr />
@@ -38,6 +47,3 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
