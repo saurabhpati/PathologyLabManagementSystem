@@ -14,10 +14,7 @@ namespace Models
         [StringLength(20)]
         [Required(ErrorMessage ="Please enter first name")]        
         public string FirstName { get; set; }
-
-        [StringLength(20)]
-        public string MiddleName { get; set; }
-
+        
         [StringLength(20)]
         [Required(ErrorMessage = "Please enter last name")]
         public string LastName { get; set; }
@@ -50,7 +47,7 @@ namespace Models
         public string MaritalStatus { get; set; }
 
         [Required]
-        public int DateOfReporting { get; set; }
+        public DateTime DateOfReporting { get; set; }
         
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]
         public string Email { get; set; }

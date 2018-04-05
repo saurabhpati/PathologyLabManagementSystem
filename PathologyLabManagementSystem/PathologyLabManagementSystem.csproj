@@ -220,7 +220,9 @@
     <Compile Include="Areas\Admin\Controllers\TestController.cs" />
     <Compile Include="Areas\Admin\ViewModels\EditTestViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\TestAttributeViewModel.cs" />
+    <Compile Include="Areas\User\Controllers\PatientController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Areas\User\ViewModels\AddPatientViewModel.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DummyController.cs" />
@@ -392,8 +394,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Patient\" />
-    <Folder Include="Areas\User\Controllers\" />
-    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\Patient\" />
     <Folder Include="Areas\User\Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>
