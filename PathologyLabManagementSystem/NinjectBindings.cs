@@ -15,6 +15,8 @@ namespace PathologyLabManagementSystem
             Bind<ITestCommentRepository>().To<TestCommentRepository>();
             Bind<ITestAttributeService>().To<TestAttributeService>();
             Bind<ITestAttributeRepository>().To<TestAttributeRepository>();
+            Bind<IPatientService>().To<PatientService>();
+            Bind<IPatientRepository>().To<PatientRepository>();
         }
     }
 }

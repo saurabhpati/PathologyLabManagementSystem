@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PathologyLabManagementSystem.Areas.User.ViewModels
 {
@@ -10,13 +11,7 @@ namespace PathologyLabManagementSystem.Areas.User.ViewModels
     {
         public AddPatientViewModel()
         {
-            LstSex = new List<Sex>()
-            {
-                new Sex{ Id=1, Text="Male" },
-                new Sex{Id=2,Text="Female"},
-                new Sex{ Id=3, Text="Other"}
-            };
-
+           
         }
         [StringLength(20)]
         [Required(ErrorMessage = "Please enter first name")]
@@ -40,8 +35,22 @@ namespace PathologyLabManagementSystem.Areas.User.ViewModels
         [RegularExpression("^[0-9]*$", ErrorMessage = "Enter valid mobile number")]
         public string PhoneNumber { get; set; }
 
-        public List<Sex> LstSex { get; set; }
-        public 
+        public List<SelectListItem> LstSex { get; set; }
+
+        [StringLength(20)]
+        public string Parent_Spouse_Name { get; set; }
+
+        [StringLength(20)]
+        public string Relation { get; set; }
+
+        public string Maritalstatus { get; set; }
+        public List<SelectListItem> LstMaritalStatus { get; set; }
+
+        public string Email { get; set; }
+
+        public string BloodGroup { get; set; }
+        public List<SelectListItem> LstBloodGroup { get; set; }
+        
     }
     public class Sex
     {
@@ -49,4 +58,5 @@ namespace PathologyLabManagementSystem.Areas.User.ViewModels
         public string Text { get; set; }
     }
     
+
 }

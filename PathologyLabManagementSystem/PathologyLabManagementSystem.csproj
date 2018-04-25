@@ -312,6 +312,9 @@
     <Content Include="Areas\Admin\Views\Test\EditTest.cshtml" />
     <Content Include="Areas\Admin\Views\Test\EditAttributes.cshtml" />
     <Content Include="Areas\Admin\Views\Test\TestDetails.cshtml" />
+    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\User\Views\Patient\AddPatient.cshtml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -394,8 +397,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Patient\" />
-    <Folder Include="Areas\User\Views\Patient\" />
-    <Folder Include="Areas\User\Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
