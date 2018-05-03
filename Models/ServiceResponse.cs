@@ -5,21 +5,20 @@ namespace Models
     public class ServiceResponse
     {
         private string _errorMessage;
+
         public StatusType Status { get; set; }
+
         public Exception Error { get; set; }
+
         public String ErrorMessage
         {
             get
             {
                 if (string.IsNullOrEmpty(_errorMessage) && (Error != null))
-                { 
-                if (string.IsNullOrEmpty(Error.Message))
                 {
-                    return Error.Message;
+                    return !string.IsNullOrEmpty(Error?.Message) ? Error.Message : Error.GetBaseException().GetType().Name;
                 }
-                    
-                    return Error.GetBaseException().GetType().Name;
-                }
+
                 return _errorMessage;
             }
             set

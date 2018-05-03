@@ -3,10 +3,8 @@ using System.Data.SqlClient;
 
 namespace Models
 {
-
     public class DataAccess
     {
-        private DataAccess dbConnect;
         public SqlConnection con = null;
        
         public DataAccess()
@@ -23,6 +21,5 @@ namespace Models
         {
             return con;
         }
-
     }
 }

@@ -11,6 +11,7 @@ namespace Repositories
         bool AddAttributes(IEnumerable<TestAttribute> Obj);
         bool EditTestAttribute(List<TestAttribute> lstAttr);
     }
+
     public class TestAttributeRepository : ITestAttributeRepository
     {
         public bool AddAttributes(IEnumerable<TestAttribute> Obj)

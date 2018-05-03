@@ -8,13 +8,15 @@ namespace Services
     {
         ServiceResponse AddPatientDetails(Patient patient);
     }
+
     public class PatientService : IPatientService
     {
+        private IPatientRepository _patientRepo;
+
         public PatientService(IPatientRepository patientRepository)
         {
-            PatientRepo = patientRepository;
+            _patientRepo = patientRepository;
         }
-        protected internal IPatientRepository PatientRepo;
 
         public ServiceResponse AddPatientDetails(Patient patient)
         {
@@ -22,14 +24,16 @@ namespace Services
             {
                 Status = StatusType.Failure
             };
+
             try
             {
-                response.Status = (PatientRepo.AddPatient(patient) == true) ? StatusType.Success : StatusType.Failure;
+                response.Status = (_patientRepo.AddPatient(patient) == true) ? StatusType.Success : StatusType.Failure;
             }
             catch (Exception ex)
             {
                 response.Error = ex;
             }
+
             return response;
         }
     }

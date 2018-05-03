@@ -17,14 +17,14 @@ namespace Services
 
     public class TestService : ITestService
     {
+        private readonly ITestRepository _testRepo;
+        private readonly ITestAttributeRepository _testAtttrRepo;
+
         public TestService(ITestRepository testRepository, ITestAttributeRepository testAttrRepository)
         {
-            TestRepo = testRepository;
-            TestAtttrRepo = testAttrRepository;
+            _testRepo = testRepository;
+            _testAtttrRepo = testAttrRepository;
         }
-
-        protected readonly ITestRepository TestRepo;
-        protected readonly ITestAttributeRepository TestAtttrRepo;
 
         /// <summary>
         /// 
@@ -40,7 +40,7 @@ namespace Services
 
             try
             {
-                response.Data = TestRepo.AddTest(tstObj);
+                response.Data = _testRepo.AddTest(tstObj);
                 response.Status = StatusType.Success;
             }
             catch (Exception ex)
@@ -48,6 +48,7 @@ namespace Services
                 response.ErrorMessage = ex.Message;
                 response.Error = ex;
             }
+
             return response;
         }
 
@@ -65,13 +66,14 @@ namespace Services
 
             try
             {
-                response.Data = TestRepo.GetAllTest();
+                response.Data = _testRepo.GetAllTest();
                 response.Status = StatusType.Success;
             }
             catch (Exception ex)
             {
                 response.Error = ex;
             }
+
             return response;
         }
 
@@ -85,16 +87,16 @@ namespace Services
 
             try
             {
-                response.Data = TestRepo.GetTest(id);
+                response.Data = _testRepo.GetTest(id);
                 response.Status = StatusType.Success;
             }
             catch (Exception ex)
             {
                 response.Error = ex;
             }
+
             return response;
         }
-
 
         public ServiceResponse<List<TestAttribute>> GetTestAttributes(int testId)
         {
@@ -106,13 +108,14 @@ namespace Services
 
             try
             {
-                response.Data = TestRepo.GetTestAttributes(testId);
+                response.Data = _testRepo.GetTestAttributes(testId);
                 response.Status = StatusType.Success;
             }
             catch (Exception ex)
             {
                 response.Error = ex;
             }
+
             return response;
         }
 
@@ -122,9 +125,10 @@ namespace Services
             {
                 Status = StatusType.Failure
             };
+
             try
             {
-                if (TestRepo.EditTest(tst))
+                if (_testRepo.EditTest(tst))
                 {
                     response.Status = StatusType.Success;
                 }
@@ -133,6 +137,7 @@ namespace Services
             {
                 response.Error = ex;
             }
+
             return response;
         }
 
@@ -145,8 +150,8 @@ namespace Services
             };
             try
             {
-                var testObj = TestRepo.GetTest(id);
-                var lstAttrs = TestRepo.GetTestAttributes(id);
+                var testObj = _testRepo.GetTest(id);
+                var lstAttrs = _testRepo.GetTestAttributes(id);
                 response.Data.TestId = testObj.Id;
                 response.Data.TestName = testObj.Name;
                 response.Data.TestType = testObj.Type;
@@ -157,6 +162,7 @@ namespace Services
             {
                 response.Error = ex;
             }
+
             return response;
         }
     }

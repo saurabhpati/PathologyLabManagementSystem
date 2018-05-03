@@ -11,6 +11,7 @@ namespace Repositories
         List<Patient> GetAllPatients();
         bool AddPatient(Patient patient);
     }
+
     public class PatientRepository : IPatientRepository
     {
         public List<Patient> GetAllPatients()

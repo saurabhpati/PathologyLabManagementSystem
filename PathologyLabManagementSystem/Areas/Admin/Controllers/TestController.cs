@@ -10,27 +10,26 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
     //[Authorize]
     public class TestController : Controller
     {
+        private readonly ITestService _testService;
+        private readonly ITestCommentService _testCommentService;
+        private readonly ITestAttributeService _testAttributeService;
+
         #region Constructor
+
         public TestController(ITestService testService, ITestCommentService testCommentService, ITestAttributeService testAttributeService)
         {
-            TestService = testService;
-            TestCommentService = testCommentService;
-            TestAttributeService = testAttributeService;
+            _testService = testService;
+            _testCommentService = testCommentService;
+            _testAttributeService = testAttributeService;
         }
-        #endregion Constructor
 
-        #region dependencies
-        protected readonly ITestService TestService;
-        protected readonly ITestCommentService TestCommentService;
-        protected readonly ITestAttributeService TestAttributeService;
-        #endregion
+        #endregion Constructor
 
         // GET: Admin/Test
         public ActionResult Index()
         {
             return View();
         }
-
 
         /// <summary>
         /// Loads the view page to add new test!
@@ -51,7 +50,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         [HttpPost]        
         public ActionResult AddTest([Bind(Include = "Name,Type")]Test tstObj)
         {
-            var testServiceResponse = TestService.AddTest(tstObj);
+            var testServiceResponse = _testService.AddTest(tstObj);
 
             if (testServiceResponse.Status == StatusType.Success)
             {
@@ -62,11 +61,10 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             return View();
         }
 
-
         public ActionResult ViewTests()
         {
             List<Test> lstTest = new List<Test>();
-            var serviceResponse = TestService.GetAllTest();
+            var serviceResponse = _testService.GetAllTest();
             if (serviceResponse.Status == StatusType.Success)
             {
                 lstTest = serviceResponse.Data;
@@ -80,7 +78,6 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             ViewBag.Message = TempData["Message"];
             return View(lstTest);
         }
-
 
         public ActionResult AddTestAttributeEditor()
         {
@@ -130,7 +127,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             {
                 list.TestId = (int)Session["tstId"];
             }
-            var testAttributeServiceResponse = TestAttributeService.AddAttributes(testAttributes);
+            var testAttributeServiceResponse = _testAttributeService.AddAttributes(testAttributes);
             TempData["Message"] = "Test was created successfully";
             return RedirectToAction("AddTest", "Test");
         }
@@ -140,7 +137,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         {
             EditTestViewModel tst = new EditTestViewModel();
             Session["tstId"] = id;
-            var serviceResponse = TestService.GetTest(id);
+            var serviceResponse = _testService.GetTest(id);
             if(serviceResponse.Status==StatusType.Success)
             {
                 tst.Id = serviceResponse.Data.Id;
@@ -153,7 +150,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditTest([Bind(Include = "Name,Type,Id")]Test tst)
         {
-            var serviceResponse = TestService.EditTest(tst);
+            var serviceResponse = _testService.EditTest(tst);
 
             if (serviceResponse.Status == StatusType.Success)
             {
@@ -166,7 +163,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         public ActionResult EditAttributes(int id)
         {
             int testId = id;
-            var serviceResponse = TestService.GetTestAttributes(testId);
+            var serviceResponse = _testService.GetTestAttributes(testId);
             TestAttributeViewModel obj = new TestAttributeViewModel();
             
             if (serviceResponse.Status == StatusType.Success)
@@ -184,7 +181,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
             {
                 testAttr.TestId = (int)Session["tstId"];
             }
-            var serviceResponse = TestAttributeService.EditTestAttribute(lstTstAttr);
+            var serviceResponse = _testAttributeService.EditTestAttribute(lstTstAttr);
             if (serviceResponse.Status == StatusType.Success)
             {
                 TempData["Message"] = "Attributes were successfully edited!";
@@ -200,7 +197,7 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult TestDetails(int id)
         {
-            var details = TestService.GetTestDetails(id);
+            var details = _testService.GetTestDetails(id);
             if (details.Status == StatusType.Success)
             {
                 return View(details.Data);
@@ -220,10 +217,5 @@ namespace PathologyLabManagementSystem.Areas.Admin.Controllers
         {
             return PartialView("TestAttributePartial", new TestAttribute());
         }
-
-
-        
-
-
     }
 }
