@@ -1,7 +1,7 @@
-﻿using Models;
-using Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Models;
+using Repositories;
 
 namespace Services
 {

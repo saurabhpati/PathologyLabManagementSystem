@@ -1,6 +1,6 @@
-﻿using Models;
+﻿using System;
+using Models;
 using Repositories;
-using System;
 
 namespace Services
 {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using PathologyLabManagementSystem.Areas.User.ViewModels;
 using Models;
+using PathologyLabManagementSystem.Areas.User.ViewModels;
 using Services;
 
 namespace PathologyLabManagementSystem.Areas.User.Controllers

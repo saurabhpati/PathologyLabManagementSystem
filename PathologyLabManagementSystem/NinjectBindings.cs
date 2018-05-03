@@ -1,7 +1,6 @@
-﻿using Ninject;
-using Ninject.Modules;
-using Services;
+﻿using Ninject.Modules;
 using Repositories;
+using Services;
 
 namespace PathologyLabManagementSystem
 {
